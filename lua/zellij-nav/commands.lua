@@ -1,46 +1,51 @@
 local M = {}
 
-function M.commands()
+function M.commands(nav)
+  local ucmd = vim.api.nvim_create_user_command
+  local acmd = vim.api.nvim_create_autocmd
   -- User commands
-  vim.api.nvim_create_user_command("ZellijNavigateUp", function()
-    require("zellij-nav").zellij_nav_up()
+  ucmd("ZellijNavigateUp", function()
+    nav.up()
   end, {})
-  vim.api.nvim_create_user_command("ZellijNavigateDown", function()
-    require("zellij-nav").zellij_nav_down()
+  ucmd("ZellijNavigateDown", function()
+    nav.down()
   end, {})
-  vim.api.nvim_create_user_command("ZellijNavigateLeft", function()
-    require("zellij-nav").zellij_nav_left()
+  ucmd("ZellijNavigateLeft", function()
+    nav.left()
   end, {})
-  vim.api.nvim_create_user_command("ZellijNavigateRight", function()
-    require("zellij-nav").zellij_nav_right()
+  ucmd("ZellijNavigateRight", function()
+    nav.right()
   end, {})
 
   -- Lock and unlock zellij
-  vim.api.nvim_create_user_command("ZellijLock", function()
-    require("zellij-nav").zellij_lock()
-  end, { force = true })
-
-  vim.api.nvim_create_user_command("ZellijUnlock", function()
-    require("zellij-nav").zellij_unlock()
-  end, { force = true })
-
-  vim.api.nvim_create_user_command("ZellijNewPane", function()
-    require("zellij-nav").zellij_new_pane()
+  ucmd("ZellijLock", function()
+    nav.lock()
   end, {})
-  vim.api.nvim_create_user_command("ZellijNewPaneSplit", function()
-    require("zellij-nav").zellij_new_pane("down")
+  ucmd("ZellijUnlock", function()
+    nav.unlock()
   end, {})
-  vim.api.nvim_create_user_command("ZellijNewPaneVSplit", function()
-    require("zellij-nav").zellij_new_pane("right")
+
+  ucmd("ZellijNewPane", function()
+    nav.new_pane()
+  end, {})
+  ucmd("ZellijNewPaneSplit", function()
+    nav.new_pane("down")
+  end, {})
+  ucmd("ZellijNewPaneVSplit", function()
+    nav.new_pane("right")
+  end, {})
+
+  ucmd("ZellijNewTab", function()
+    nav.new_tab()
   end, {})
 
   -- Autocommands
-  vim.api.nvim_create_autocmd("VimEnter", {
+  acmd("VimEnter", {
     pattern = "*",
     command = "ZellijLock",
   })
 
-  vim.api.nvim_create_autocmd("VimLeavePre", {
+  acmd("VimLeavePre", {
     pattern = "*",
     command = "ZellijUnlock",
   })
