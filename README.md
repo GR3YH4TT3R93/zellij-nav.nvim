@@ -6,7 +6,6 @@ A Lua rewrite of the [`zellij.vim`](https://github.com/fresh2dev/zellij.vim) plu
 
 - 📂 Open new Zellij panes and tabs from within Neovim.
 - 🔄 Navigate between Neovim and Zellij seamlessly.
-- ⚙️ Execute Zellij commands directly from Neovim.
 
 ## Installation 📦
 
