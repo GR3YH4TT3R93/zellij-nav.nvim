@@ -1,37 +1,37 @@
 local M = {}
 
-function M.commands()
+function M.commands(nav)
   -- User commands
   vim.api.nvim_create_user_command("ZellijNavigateUp", function()
-    require("zellij-nav").zellij_nav_up()
+    nav.up()
   end, {})
   vim.api.nvim_create_user_command("ZellijNavigateDown", function()
-    require("zellij-nav").zellij_nav_down()
+    nav.down()
   end, {})
   vim.api.nvim_create_user_command("ZellijNavigateLeft", function()
-    require("zellij-nav").zellij_nav_left()
+    nav.left()
   end, {})
   vim.api.nvim_create_user_command("ZellijNavigateRight", function()
-    require("zellij-nav").zellij_nav_right()
+    nav.right()
   end, {})
 
   -- Lock and unlock zellij
   vim.api.nvim_create_user_command("ZellijLock", function()
-    require("zellij-nav").zellij_lock()
-  end, { force = true })
+    nav.lock()
+  end, {})
 
   vim.api.nvim_create_user_command("ZellijUnlock", function()
-    require("zellij-nav").zellij_unlock()
-  end, { force = true })
+    nav.unlock()
+  end, {})
 
   vim.api.nvim_create_user_command("ZellijNewPane", function()
-    require("zellij-nav").zellij_new_pane()
+    nav.new_pane()
   end, {})
   vim.api.nvim_create_user_command("ZellijNewPaneSplit", function()
-    require("zellij-nav").zellij_new_pane("down")
+    nav.new_pane("down")
   end, {})
   vim.api.nvim_create_user_command("ZellijNewPaneVSplit", function()
-    require("zellij-nav").zellij_new_pane("right")
+    nav.new_pane("right")
   end, {})
 
   -- Autocommands
