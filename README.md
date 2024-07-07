@@ -49,27 +49,38 @@ Use the [lazy.nvim](https://github.com/folke/lazy.nvim) plugin manager to instal
 These are the default keybindings set by the plugin:
 
 ```lua
-vim.keymap.set("n", "<Leader>zk", ":ZellijNavigateUp<CR>", { silent = true })
-vim.keymap.set("n", "<Leader>zj", ":ZellijNavigateDown<CR>", { silent = true })
-vim.keymap.set("n", "<Leader>zh", ":ZellijNavigateLeft<CR>", { silent = true })
-vim.keymap.set("n", "<Leader>zl", ":ZellijNavigateRight<CR>", { silent = true })
-vim.keymap.set("n", "<Leader>zn", ":ZellijNewPane<CR>", { silent = true })
-vim.keymap.set("n", "<Leader>zs", ":ZellijNewPaneSplit<CR>", { silent = true })
-vim.keymap.set("n", "<Leader>zv", ":ZellijNewPaneVSplit<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-h>", "<cmd>ZellijUnlock<CR><cmd>ZellijNavigateLeft<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-j>", "<cmd>ZellijUnlock<CR><cmd>ZellijNavigateDown<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-k>", "<cmd>ZellijUnlock<CR><cmd>ZellijNavigateUp<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-l>", "<cmd>ZellijUnlock<CR><cmd>ZellijNavigateRight<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-n>", "<cmd>ZellijUnlock<CR><cmd>ZellijNewPane<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-s>", "<cmd>ZellijUnlock<CR><cmd>ZellijNewPaneSplit<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-v>", "<cmd>ZellijUnlock<CR><cmd>ZellijNewPaneVSplit<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-x>", "<cmd>ZellijUnlock<CR><cmd>ZellijClosePane<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-t>", "<cmd>ZellijUnlock<CR><cmd>ZellijNewTab<CR>", { silent = true })
 ```
 
-### Custom Keybindings ⌨️
+### Recommended Zellij Keybindings ⌨️
 
-You can set up your custom keybindings in your `init.lua` file:
+You can set up your custom keybindings in your `~/.config/zellij/config.kdl` file:
 
-```lua
-vim.keymap.set("n", "<C-k>", ":ZellijNavigateUp<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-j>", ":ZellijNavigateDown<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-h>", ":ZellijNavigateLeft<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-l>", ":ZellijNavigateRight<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-n>", ":ZellijNewPane<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-s>", ":ZellijNewPaneSplit<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-v>", ":ZellijNewPaneVSplit<CR>", { noremap = true, silent = true })
+```kdl
+keybinds {
+    shared_except "locked" {
+        bind "Ctrl g" { SwitchToMode "Locked"; }
+        bind "Ctrl q" { Detach; }
+        bind "Alt q" { Quit; }
+        bind "Alt n" { NewPane; }
+        bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
+        bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
+        bind "Alt j" "Alt Down" { MoveFocus "Down"; }
+        bind "Alt k" "Alt Up" { MoveFocus "Up"; }
+        bind "Alt =" "Alt +" { Resize "Increase"; }
+        bind "Alt -" { Resize "Decrease"; }
+        bind "Alt [" { PreviousSwapLayout; }
+        bind "Alt ]" { NextSwapLayout; }
+    }
+}
 ```
 
 ## Contributing ♻️

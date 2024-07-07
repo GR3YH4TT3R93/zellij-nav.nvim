@@ -3,7 +3,6 @@ local M = {}
 function M.setup()
   local nav = require("zellij-nav.utils").zellij_navigate
   local sys = vim.fn.system
-  local cmd = vim.api.nvim_cmd
 
   function M.up()
     nav("k", "up")
@@ -55,7 +54,6 @@ function M.setup()
   function M.close_pane()
     -- Save all open buffers in neovim and close zellij pane
     sys("zellij action switch-mode normal")
-    cmd("wa")
     sys("zellij action close-pane")
   end
 end
