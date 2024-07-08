@@ -26,6 +26,7 @@ Use the [lazy.nvim](https://github.com/folke/lazy.nvim) plugin manager to instal
 
 - Neovim 0.10.0 or later. (soft req haven't tested on earlier versions)
 - Zellij 0.40.1 or later. (soft req haven't tested on earlier versions)
+- [zellij-autolock](https://github.com/fresh2dev/zellij-autolock) (HARD REQ needed to automatically lock Zellij when in neovim)
 
 ## Usage 🚀
 
@@ -67,11 +68,22 @@ vim.api.nvim_set_keymap("n", "<A-t>", "<cmd>ZellijUnlock<CR><cmd>ZellijNewTab<CR
 NOTE: to disable default keymaps put `vim.g.zellij_nav_default_mappings = false` somewhere in your config
 
 
-### Recommended Zellij Keybindings ⌨️
+### Recommended Zellij Config ⌨️
 
-You can set up your custom keybindings in your `~/.config/zellij/config.kdl` file:
+You can set up Zellij-autolock and keymaps via `~/.config/zellij/config.kdl` as
+follows:
 
 ```kdl
+
+plugins {
+    // Define the "autolock" plugin.
+    autolock location="https://github.com/fresh2dev/zellij-autolock/releases/latest/download/zellij-autolock.wasm" {
+        triggers "nvim|vim"  // Lock when any open these programs open. They are expected to unlock themselves when closed (e.g., using zellij.vim plugin).
+        watch_triggers "fzf|zoxide|atuin"  // Lock when any of these open and monitor until closed.
+        watch_interval "1.0"  // When monitoring, check every X seconds.
+    }
+    //...
+}
 keybinds {
     shared_except "locked" {
         bind "Ctrl g" { SwitchToMode "Locked"; }
