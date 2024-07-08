@@ -77,6 +77,7 @@ follows:
 
 plugins {
     // Define the "autolock" plugin.
+    // if experiencing error, download from releasse page and change "https://..." to "file:~/path/to/zellij-autolock.wasm"
     autolock location="https://github.com/fresh2dev/zellij-autolock/releases/latest/download/zellij-autolock.wasm" {
         triggers "nvim|vim"  // Lock when any open these programs open. They are expected to unlock themselves when closed (e.g., using zellij.vim plugin).
         watch_triggers "fzf|zoxide|atuin"  // Lock when any of these open and monitor until closed.
