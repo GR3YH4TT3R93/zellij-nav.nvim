@@ -14,11 +14,11 @@ Use the [lazy.nvim](https://github.com/folke/lazy.nvim) plugin manager to instal
 ```lua
 {
   "GR3YH4TT3R93/zellij-nav.nvim",
-  config = function()
-    require("zellij-nav").setup({
-      -- Configuration options go here
-    })
-  end
+  init = function() -- Only needed if you want to override default keymaps otherwise just call opts = {}
+    vim.g.zellij_nav_default_mappings = false -- Default: true
+  end,
+  opts = {}, -- Optional
+  keys = {}, -- define your own keymaps e.g keys = { { "<C-h>", "<cmd>ZellijNavigateUp<CR>", { silent = true, desc = "Move to Zellij pane up" } } }
 }
 ```
 
@@ -41,8 +41,13 @@ Use the [lazy.nvim](https://github.com/folke/lazy.nvim) plugin manager to instal
 #### Pane Commands
 
 - `:ZellijNewPane` - Open a floating Zellij pane.
+- `:ZellijClosePane` - Close current Zellij pane.
 - `:ZellijNewPaneSplit` - Open a Zellij pane below.
 - `:ZellijNewPaneVSplit` - Open a Zellij pane to the right.
+
+#### Tab Commands
+
+- `:ZellijNewTab` - Open a new Zellij tab.
 
 ### Default Keybindings ⌨️
 
@@ -59,6 +64,8 @@ vim.api.nvim_set_keymap("n", "<A-v>", "<cmd>ZellijUnlock<CR><cmd>ZellijNewPaneVS
 vim.api.nvim_set_keymap("n", "<A-x>", "<cmd>ZellijUnlock<CR><cmd>ZellijClosePane<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<A-t>", "<cmd>ZellijUnlock<CR><cmd>ZellijNewTab<CR>", { silent = true })
 ```
+NOTE: to disable default keymaps put `vim.g.zellij_nav_default_mappings = false` somewhere in your config
+
 
 ### Recommended Zellij Keybindings ⌨️
 
