@@ -55,15 +55,15 @@ Use the [lazy.nvim](https://github.com/folke/lazy.nvim) plugin manager to instal
 These are the default keybindings set by the plugin:
 
 ```lua
-vim.api.nvim_set_keymap("n", "<A-h>", "<cmd>ZellijUnlock<CR><cmd>ZellijNavigateLeft<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<A-j>", "<cmd>ZellijUnlock<CR><cmd>ZellijNavigateDown<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<A-k>", "<cmd>ZellijUnlock<CR><cmd>ZellijNavigateUp<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<A-l>", "<cmd>ZellijUnlock<CR><cmd>ZellijNavigateRight<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<A-n>", "<cmd>ZellijUnlock<CR><cmd>ZellijNewPane<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<A-s>", "<cmd>ZellijUnlock<CR><cmd>ZellijNewPaneSplit<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<A-v>", "<cmd>ZellijUnlock<CR><cmd>ZellijNewPaneVSplit<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<A-x>", "<cmd>ZellijUnlock<CR><cmd>ZellijClosePane<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<A-t>", "<cmd>ZellijUnlock<CR><cmd>ZellijNewTab<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-h>", "<cmd>ZellijNavigateLeft<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-j>", "<cmd>ZellijNavigateDown<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-k>", "<cmd>ZellijNavigateUp<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-l>", "<cmd>ZellijNavigateRight<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-n>", "<cmd>ZellijNewPane<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-s>", "<cmd>ZellijNewPaneSplit<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-v>", "<cmd>ZellijNewPaneVSplit<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-x>", "<cmd>ZellijClosePane<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-t>", "<cmd>ZellijNewTab<CR>", { silent = true })
 ```
 NOTE: to disable default keymaps put `vim.g.zellij_nav_default_mappings = false` somewhere in your config
 
