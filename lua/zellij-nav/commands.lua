@@ -42,6 +42,10 @@ function M.commands(nav)
     nav.new_tab()
   end, {})
 
+  ucmd("ZellijToggleFloatingPanes", function()
+    nav.toggle_floating_panes()
+  end, {})
+
   -- Autocommands
   acmd("VimEnter", {
     pattern = "*",

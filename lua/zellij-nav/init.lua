@@ -56,6 +56,10 @@ function M.setup()
     sys("zellij action switch-mode normal")
     sys("zellij action close-pane")
   end
+
+  function M.toggle_floating_panes()
+    sys("zellij action toggle-floating-panes")
+  end
 end
 require("zellij-nav.commands").commands(M)
 require("zellij-nav.mappings").mappings()
