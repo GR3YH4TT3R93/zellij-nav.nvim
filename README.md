@@ -45,6 +45,7 @@ Use the [lazy.nvim](https://github.com/folke/lazy.nvim) plugin manager to instal
 - `:ZellijClosePane` - Close current Zellij pane.
 - `:ZellijNewPaneSplit` - Open a Zellij pane below.
 - `:ZellijNewPaneVSplit` - Open a Zellij pane to the right.
+- `:ZellijToggleFloatingPanes` - Show/hide floating panes; if none are open, one will be opened
 
 #### Tab Commands
 
@@ -62,6 +63,7 @@ vim.api.nvim_set_keymap("n", "<A-l>", "<cmd>ZellijNavigateRight<CR>", { silent =
 vim.api.nvim_set_keymap("n", "<A-n>", "<cmd>ZellijNewPane<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<A-s>", "<cmd>ZellijNewPaneSplit<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<A-v>", "<cmd>ZellijNewPaneVSplit<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-t>", "<cmd>ZellijToggleFloatingPanes<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<A-x>", "<cmd>ZellijClosePane<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<A-t>", "<cmd>ZellijNewTab<CR>", { silent = true })
 ```

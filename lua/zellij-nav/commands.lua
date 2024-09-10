@@ -34,16 +34,15 @@ function M.commands(nav)
   ucmd("ZellijNewPaneVSplit", function()
     nav.new_pane("right")
   end, {})
+  ucmd("ZellijToggleFloatingPanes", function()
+    nav.toggle_floating_panes()
+  end, {})
   ucmd("ZellijClosePane", function()
     nav.close_pane()
   end, {})
 
   ucmd("ZellijNewTab", function()
     nav.new_tab()
-  end, {})
-
-  ucmd("ZellijToggleFloatingPanes", function()
-    nav.toggle_floating_panes()
   end, {})
 
   -- Autocommands
