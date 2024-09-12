@@ -19,6 +19,8 @@ Use the [lazy.nvim](https://github.com/folke/lazy.nvim) plugin manager to instal
   end,
   opts = {}, -- Optional
   keys = {}, -- define your own keymaps e.g keys = { { "<C-h>", "<cmd>ZellijNavigateUp<CR>", { silent = true, desc = "Move to Zellij pane up" } } }
+  -- Lazy will lazy load `zellij-nav` if there is a set keys field, meaning if you open Neovim then exit you will remain in locked mode.
+  lazy = false, -- Set this if you set any `keys` values.
 }
 ```
 
@@ -88,6 +90,14 @@ plugins {
     //...
 }
 keybinds {
+    // Normal mode bindings to activate zellij-autolock by intercepting `Enter`,then passing it through to the terminal.
+    normal {
+        bind "Enter" {
+            WriteChars "\u{000D}"; 
+            MessagePlugin "autolock" {};
+        }
+        //...
+    }
     shared_except "locked" {
         bind "Ctrl g" { SwitchToMode "Locked"; }
         bind "Ctrl q" { Detach; }
