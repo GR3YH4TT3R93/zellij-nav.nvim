@@ -14,6 +14,7 @@ function M.mappings()
     map("n", "<A-n>", "<cmd>ZellijNewPane<CR>", { silent = true })
     map("n", "<A-s>", "<cmd>ZellijNewPaneSplit<CR>", { silent = true })
     map("n", "<A-v>", "<cmd>ZellijNewPaneVSplit<CR>", { silent = true })
+    map("n", "<A-f>", "<cmd>ZellijToggleFloatingPanges<CR>", { silent = true })
     map("n", "<A-x>", "<cmd>ZellijClosePane<CR>", { silent = true })
     map("n", "<A-t>", "<cmd>ZellijNewTab<CR>", { silent = true })
   end
