@@ -65,7 +65,7 @@ vim.api.nvim_set_keymap("n", "<A-l>", "<cmd>ZellijNavigateRight<CR>", { silent =
 vim.api.nvim_set_keymap("n", "<A-n>", "<cmd>ZellijNewPane<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<A-s>", "<cmd>ZellijNewPaneSplit<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<A-v>", "<cmd>ZellijNewPaneVSplit<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<A-t>", "<cmd>ZellijToggleFloatingPanes<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<A-f>", "<cmd>ZellijToggleFloatingPanes<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<A-x>", "<cmd>ZellijClosePane<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<A-t>", "<cmd>ZellijNewTab<CR>", { silent = true })
 ```
