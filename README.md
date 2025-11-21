@@ -43,15 +43,22 @@ Use the [lazy.nvim](https://github.com/folke/lazy.nvim) plugin manager to instal
 
 #### Pane Commands
 
-- `:ZellijNewPane` - Open a floating Zellij pane.
+- `:ZellijNewPane <direction|opts>` - Open a floating Zellij pane. Optionally a direction (left/right/up/down), or arguments, can be provided.
 - `:ZellijClosePane` - Close current Zellij pane.
 - `:ZellijNewPaneSplit` - Open a Zellij pane below.
 - `:ZellijNewPaneVSplit` - Open a Zellij pane to the right.
-- `:ZellijToggleFloatingPanes` - Show/hide floating panes; if none are open, one will be opened
+- `:ZellijToggleFloatingPanes` - Show/hide floating panes; if none are open, one will be opened.
+- `:ZellijTogglePaneFullscreen` - Toggle the active Zellij pane fullscreen.
+- `:ZellijRenamePane <name>` - Rename the active Zellij pane; if no argument provided user input is taken.
+- `:ZellijResizePane <direction>` - Resize the active Zellij pane; if no direction provided an interactive resize mode is started.
+- `:ZellijMovePane <direction>` - Move the active Zellij pane; a valid direction (left/right/up/down) must be provided.
 
 #### Tab Commands
 
 - `:ZellijNewTab` - Open a new Zellij tab.
+- `:ZellijCloseTab` - Close the active Zellij tab.
+- `:ZellijRenameTab <name>` - Rename the active Zellij tab; if no argument provided user input is taken.
+- `:ZellijMoveTab <direction>` - Move the active Zellij tab; a valid direction (left/right) must be provided.
 
 ### Default Keybindings ⌨️
 

@@ -6,7 +6,7 @@ function M.mappings()
   if vim.g.zellij_nav_default_mappings == false then
     return
   else
-    -- Keymaps
+    -- 'Alt Key' Shortcut Pane Keymaps
     map("n", "<A-h>", "<cmd>ZellijNavigateLeft<CR>", { silent = true })
     map("n", "<A-j>", "<cmd>ZellijNavigateDown<CR>", { silent = true })
     map("n", "<A-k>", "<cmd>ZellijNavigateUp<CR>", { silent = true })
